@@ -3,7 +3,7 @@ const cors = require('cors')
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const jwt = require("jsonwebtoken");
 const app = express()
-const port = 5000
+const port = process.env.PORT;
 
 app.use(cors())
 app.use(express.json())
@@ -35,7 +35,7 @@ function verifyToken(req, res, next) {
 
 
 
-const uri = "mongodb+srv://uzzalsinha89:fdWvMvqfAzWqYKMn@cluster0.6ahcmey.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.DB_URL;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
